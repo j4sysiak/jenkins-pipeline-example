@@ -10,5 +10,9 @@ https://github.com/j4sysiak/jenkins-pipeline-example
 lokalnie w InteliJ:
 C:\Users\Jacek\Documents\GitHub\jenkins-pipeline-example
 
-niby jest ten Jenkinsfile ale nie korzystam, pipeline jest zdefiniowany w Jenkinsie:
+Jenkinsfile2 - może być wykorzystany w konfiguracji Jenkinsa (Pipeline -> Definition -> Pipeline script from SCM)
+Script Path  - Jenkinsfile
 http://localhost:8080/job/jenkins-pipeline-example/configure
+
+
+Jenkinsfile - samodielny plik w InteliJ - opcja w konfiguracji w Jenkinsie (Pipeline -> Definition -> Pipeline script)
