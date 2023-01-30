@@ -5,21 +5,14 @@ pipeline {
         jdk "JDK"
     }
     stages {
-        stage('Initialize'){
-            steps{
-                echo "PATH = ${M2_HOME}/bin:${PATH}"
-                echo "M2_HOME = /opt/maven"
-            }
-        }
         stage('Build') {
             steps {
-                dir("/var/lib/jenkins/workspace/jenkins-pipeline-example") {
-                sh 'mvn -B -DskipTests clean package'
-                }
-            
+                echo 'Hello World'
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'git', url: 'https://github.com/j4sysiak/jenkins-pipeline-example.git']]])
+                sh "mvn -Dmaven.test.failure.ignore=true clean package"
             }
         }
-     }
+    }
     post {
        always {
           junit(
@@ -27,5 +20,5 @@ pipeline {
         testResults: '*/test-reports/.xml'
       )
       }
-   } 
+   }
 }
